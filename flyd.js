@@ -79,14 +79,15 @@ var order = [];
 var orderNextIdx = -1;
 
 function findDeps(s) {
+  if (s.queued === true) return;
+
   var i, listeners = s.listeners;
-  if (s.queued === false) {
-    s.queued = true;
-    for (i = 0; i < listeners.length; ++i) {
-      findDeps(listeners[i]);
-    }
-    order[++orderNextIdx] = s;
+  s.queued = true;
+
+  for (i = 0; i < listeners.length; ++i) {
+    findDeps(listeners[i]);
   }
+  order[++orderNextIdx] = s;
 }
 
 function updateDeps(s) {
