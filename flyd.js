@@ -192,7 +192,7 @@ function addListeners(deps, s) {
 }
 
 function createDependentStream(deps, fn) {
-  var i, s = createStream();
+  var s = createStream();
   s.fn = fn;
   s.deps = deps;
   s.depsMet = false;
