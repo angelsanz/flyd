@@ -211,9 +211,7 @@ function immediate(s) {
 }
 
 function removeListener(s, listeners) {
-  var idx = listeners.indexOf(s);
-  listeners[idx] = listeners[listeners.length - 1];
-  listeners.length--;
+  listeners.splice(listeners.indexOf(s), 1);
 }
 
 function detachDeps(s) {
