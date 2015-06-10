@@ -163,7 +163,6 @@ function markListeners(s, lists) {
 
 function createStream() {
   function s(n) {
-    var i, list;
     if (arguments.length === 0) {
       return s.val;
     } else {
